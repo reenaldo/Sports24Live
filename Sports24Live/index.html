@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sport Stream - Link football online</title>
+    <meta
+      name="description"
+      content="Live Football, Streaming Football, Live Soccer and Video Highlights"
+    />
+    <!-- Favicon -->
+    <link rel="icon" href="assets/pics/ico.png" type="image/png" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/offcanvas.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Merriweather:400,700,900"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- JavaScript Libraries -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/offcanvas.js"></script>
+    <!-- JavaScript Functionality -->
+    <script>
+      // Function to format date as "dd/mm"
+      function formatDate(date) {
+        // Array of month abbreviations
+        const months = [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+        ];
+        const day = date.getDate();
+        const month = months[date.getMonth()];
+        return day + "/" + month;
+      }
+
+      // Function to format time as "hh:mm"
+      function formatTime(date) {
+        const hours = date.getHours().toString().padStart(2, "0");
+        const minutes = date.getMinutes().toString().padStart(2, "0");
+        return hours + ":" + minutes;
+      }
+
+      $(function () {
+        // Iterate through each element with class 'matches'
+        $(".matches").each(function () {
+          const dateUtc = $(this).find(".time").data("utctime");
+          const date = new Date(dateUtc);
+          const fmDate = formatDate(date);
+          const fmTime = formatTime(date);
+          $(this).find(".time").text(fmTime); // Update displayed time
+          $(this).find(".date").text(fmDate); // Update displayed date
+        });
+      });
+    </script>
+  </head>
+
+  <body id="page-top">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-md fixed-top navbar-light">
+      <div class="container">
+        <!-- Brand Logo -->
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/pics/sports24.png" style="height: 30px" />
+        </a>
+        <!-- Toggle Button for Offcanvas Navigation -->
+        <button
+          class="navbar-toggler p-0 border-0"
+          type="button"
+          data-toggle="offcanvas"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Offcanvas Navigation Content -->
+        <div
+          class="navbar-collapse offcanvas-collapse"
+          id="navbarsExampleDefault"
+        >
+          <ul class="nav navbar-nav navbar-right">
+            <!-- Navigation Links -->
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">LIVE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="highlight.html">Highlight</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="standings.html">STANDINGS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" target="_blank">Vip Stream</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="container">
+      <!-- List of Matches -->
+      <div class="list-matches">
+        <!-- Match Entry Lazio vs Udinese -->
+        <a href="lazio-udinese.html" class="matches">
+          <div class="matches-block">
+            <div class="matches-main">
+              <!-- Home Team Information -->
+              <div class="matches-team">
+                <!-- Team Lineup -->
+                <div class="team-line centered">
+                  <span class="team home-team team-container">
+                    <img
+                      class="team-logo"
+                      src="https://static.flashscore.com/res/image/data/zXqymff5-fL3dmxxd.png"
+                    />
+                    <span class="team-name">Lazio</span>
+                  </span>
+                  <!-- Match Time Information -->
+                  <span class="prediction-score">
+                    <span class="matches-time">
+                      <!-- Displayed Time -->
+                      <span class="time" id="t-lazio">&nbsp;</span>
+                      <!-- Displayed Date and Time (fetched via JavaScript) -->
+                      <span
+                        class="time"
+                        id="d-udinese"
+                        data-utctime="03/10/2023 20:45:00"
+                      ></span>
+                      <!-- JavaScript to update date and time -->
+                      <script type="text/javascript">
+                        $(document).ready(function () {
+                          var date_utc = $("#d-udinese").attr("data-utctime");
+                          var date = new Date(date_utc);
+                          var fmdate = formatDate(date);
+                          var fmtime = formatTime(date);
+                          $("#d-udinese").html(fmdate);
+                          $("#t-lazio").html(fmtime);
+                        });
+                      </script>
+                    </span>
+                    <!-- Display live indicator -->
+                    <span class="matches-time text-center">
+                      <img class="live" src="assets/pics/live3860.gif?v=1" />
+                    </span>
+                    <!-- Display league information -->
+                    <span class="league text-center">Serie A</span>
+                  </span>
+                  <!-- Away Team Information -->
+                  <span class="team away-team team-container">
+                    <img
+                      class="team-logo"
+                      src="https://static.flashscore.com/res/image/data/AZBQMaYA-SYw7EcY6.png"
+                    />
+                    <span class="team-name">Udinese</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <!-- Match Entry Chelsea vs NewCastle -->
+        <a href="chelsea-newcastle.html" class="matches">
+          <div class="matches-block">
+            <div class="matches-main">
+              <!-- Home Team Information -->
+              <div class="matches-team">
+                <!-- Team Lineup -->
+                <div class="team-line centered">
+                  <span class="team home-team team-container">
+                    <img
+                      class="team-logo"
+                      src="https://static.flashscore.com/res/image/data/GMmvDEdM-IROrZEJb.png"
+                    />
+                    <span class="team-name">Chelsea</span>
+                  </span>
+                  <!-- Match Time Information -->
+                  <span class="prediction-score">
+                    <span class="matches-time">
+                      <!-- Displayed Time -->
+                      <span class="time" id="t-chelsea-newcastle">&nbsp;</span>
+                      <!-- Displayed Date and Time (fetched via JavaScript) -->
+                      <span
+                        class="time"
+                        id="d-chelsea-newcastle"
+                        data-utctime="03/10/2023 21:00:00"
+                      ></span>
+                      <!-- JavaScript to update date and time -->
+                      <script type="text/javascript">
+                        $(document).ready(function () {
+                          var date_utc = $("#d-chelsea-newcastle").attr(
+                            "data-utctime"
+                          );
+                          var date = new Date(date_utc);
+                          var fmdate = formatDate(date);
+                          var fmtime = formatTime(date);
+                          $("#d-chelsea-newcastle").html(fmdate);
+                          $("#t-chelsea-newcastle").html(fmtime);
+                        });
+                      </script>
+                    </span>
+                    <!-- Display live indicator -->
+                    <span class="matches-time text-center">
+                      <img class="live" src="assets/pics/live3860.gif?v=1" />
+                    </span>
+                    <!-- Display league information -->
+                    <span class="league text-center">Premier League</span>
+                  </span>
+                  <!-- Away Team Information -->
+                  <span class="team away-team team-container">
+                    <img
+                      class="team-logo"
+                      src="https://static.flashscore.com/res/image/data/fojwJwZA-ImMEe0UF.png"
+                    />
+                    <span class="team-name">NewCastle</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Match Entry Almeria vs Fc Sevillie -->
+        <a href="almeria-fc-seville.html" class="matches">
+          <div class="matches-block">
+            <div class="matches-main">
+              <!-- Home Team Information -->
+              <div class="matches-team">
+                <!-- Team Lineup -->
+                <div class="team-line centered">
+                  <span class="team home-team team-container">
+                    <img
+                      class="team-logo"
+                      src="https://static.flashscore.com/res/image/data/8C5Bj3wS-nDyT2xMM.png"
+                    />
+                    <span class="team-name">Almeria</span>
+                  </span>
+                  <!-- Match Time Information -->
+                  <span class="prediction-score">
+                    <span class="matches-time">
+                      <!-- Displayed Time -->
+                      <span class="time" id="t-almeria">&nbsp;</span>
+                      <!-- Displayed Date and Time (fetched via JavaScript) -->
+                      <span
+                        class="time"
+                        id="d-almeria"
+                        data-utctime="03/10/2023 21:00:00"
+                      ></span>
+                      <!-- JavaScript to update date and time -->
+                      <script type="text/javascript">
+                        $(document).ready(function () {
+                          var date_utc = $("#d-almeria").attr("data-utctime");
+                          var date = new Date(date_utc);
+                          var fmdate = formatDate(date);
+                          var fmtime = formatTime(date);
+                          $("#d-almeria").html(fmdate);
+                          $("#t-almeria").html(fmtime);
+                        });
+                      </script>
+                    </span>
+                    <!-- Display live indicator -->
+                    <span class="matches-time text-center">
+                      <img class="live" src="assets/pics/live3860.gif?v=1" />
+                    </span>
+                    <!-- Display league information -->
+                    <span class="league text-center">La Liga</span>
+                  </span>
+                  <!-- Away Team Information -->
+                  <span class="team away-team team-container">
+                    <img
+                      class="team-logo"
+                      src="https://static.flashscore.com/res/image/data/G2BgO5Ar-YmCZKGcR.png"
+                    />
+                    <span class="team-name">Fc Séville</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="text-center" style="height: 60px"></footer>
+
+    <div
+      style="
+        text-align: right;
+        position: fixed;
+        z-index: 9999999;
+        bottom: 0;
+        width: auto;
+        right: 1%;
+        cursor: pointer;
+        line-height: 0;
+        display: block !important;
+      "
+    ></div>
+  </body>
+</html>
